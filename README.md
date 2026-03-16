@@ -1,7 +1,7 @@
 
 # Least American Songs — US vs UK Chart Analysis
 
-**Project**: Adaptation of the Bandsplaining "Least American Songs" concept to a US vs UK comparison.
+**Project**: Portfolio daptation of the "Least American Songs" concept to a US vs UK chart comparison.
 
 
 ## Summary
@@ -33,6 +33,5 @@ See the notebook `analysis.ipynb` for the full results: top/bottom songs overall
 - Jupyter Notebook
 
 ## Notes & Next steps
-- This repo uses US vs UK only (adapted due to data availability). To replicate the original Bandsplaining 18-country method, collect weekly charts from additional countries and compute the World score as the mean across countries.
+- This repo uses US vs UK only. To replicate the actual method used, one must collect weekly charts from additional countries and compute the World score as the mean across countries.
 - Improve entity standardisation (artists with collaborators, remixes) using fuzzy matching or MusicBrainz IDs.
-
