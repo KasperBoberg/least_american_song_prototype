@@ -1,7 +1,7 @@
 
 # Least American Songs — US vs UK Chart Analysis
 
-**Project**: Portfolio daptation of the "Least American Songs" concept to a US vs UK chart comparison.
+**Project**: Portfolio adaptation of the "Least American Songs" prototype concept to a US vs UK chart comparison.
 
 
 ## Summary
