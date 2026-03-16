@@ -26,7 +26,7 @@ See the notebook `analysis.ipynb` for the full results: top/bottom songs overall
 2. Place the two data files in the same folder or update the paths in the notebook:
    - `charts.csv` (Billboard Hot 100 weekly data)
    - `top_100_songs_1952_to_2024.xlsx` (UK weekly data)
-3. Open `analysis.ipynb` in JupyterLab / VS Code and run the notebook. The notebook was executed in the included copy; re-running will reproduce the figures.
+3. Open `analysis.ipynb` in JupyterLab or VS Code and run the notebook. The notebook was executed in the included copy nad here on GitHub; re-running will reproduce the figures.
 
 ## Tech stack
 - Python (pandas, numpy, matplotlib)
