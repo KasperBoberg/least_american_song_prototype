@@ -17,6 +17,7 @@ Songs with US chart score > 1000 are excluded to focus on songs that were not ge
 ## Files
 - `analysis.ipynb` — executed Jupyter notebook with the full analysis, figures and outputs.
 - `figures/` — generated plots referenced in the notebook.
+- `data/` - chart data from: US (Billboard Top 100) [chart.csv], UK (Top 100 Songs) [top_100_songs_1952_to_2024.xlsx]. 
 
 ## Key findings (automatically generated)
 See the notebook `analysis.ipynb` for the full results: top/bottom songs overall, decade-by-decade analysis, and visualisations.
