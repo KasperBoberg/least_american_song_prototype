@@ -1,38 +1,88 @@
+# Least American Songs
 
-# Least American Songs — US vs UK Chart Analysis
+A portfolio data analysis project prototyping “Least American Songs” concept.
 
-**Project**: Portfolio adaptation of the "Least American Songs" prototype concept to a US vs UK chart comparison.
+The goal is simple: compare how songs performed in the **Billboard Hot 100** versus the **Official UK Singles Chart**, then score each song by how much more “American” it was than “British”:
 
+\[
+\text{chart\_score} = \sum (101 - \text{rank})
+\]
 
-## Summary
-This project computes an "Americanness Score" for songs using weekly chart data from the US (Billboard Hot 100) and the UK (Official UK Singles Chart). The score is:
+\[
+\text{Americanness Score} = \text{US Score} - \text{UK Score}
+\]
 
-```
-chart_score = sum(101 - rank)  # summed across chart weeks
-americanness = US_chart_score - UK_chart_score
-```
+Songs with only one-sided chart presence are discarded. A song must have **non-zero scores in both charts** to remain in the final analysis.
 
-Songs with US chart score > 1000 are excluded to focus on songs that were not genuinely popular in the US.
+## Why this version
 
-## Files
-- `analysis.ipynb` — executed Jupyter notebook with the full analysis, figures and outputs.
-- `figures/` — generated plots referenced in the notebook.
-- `data/` - chart data from: US (Billboard Top 100) [chart.csv], UK (Top 100 Songs) [top_100_songs_1952_to_2024.xlsx]. 
+The original video compares the US against many countries. This repo scopes the idea down to a **US vs UK** comparison, which is easier to reproduce cleanly while still producing a meaningful cultural contrast.
 
-## Key findings (automatically generated)
-See the notebook `analysis.ipynb` for the full results: top/bottom songs overall, decade-by-decade analysis, and visualisations.
+## What’s in the notebook
 
-## How to run locally
-1. Clone the repository
-2. Place the two data files in the same folder or update the paths in the notebook:
-   - `charts.csv` (Billboard Hot 100 weekly data)
-   - `top_100_songs_1952_to_2024.xlsx` (UK weekly data)
-3. Open `analysis.ipynb` in JupyterLab or VS Code and run the notebook. The notebook was executed in the included copy nad here on GitHub; re-running will reproduce the figures.
+`analysis.ipynb` contains:
+
+- data loading and inspection
+- UK date parsing with the requested `Week`-range extraction
+- explicit datetime coercion and validation
+- shared-date filtering so only overlapping calendar rows survive
+- song-level chart scoring
+- master table creation and Americanness scoring
+- overall EDA
+- decade-by-decade rankings
+- visualisations
+- an all-time Hall of Fame
+
+## Key findings
+
+On the shared sample used in this notebook:
+
+- **2,794 songs** survive the two-sided merge
+- the shared aligned window runs from **1969-08-02 to 2021-11-06**
+- the strongest UK-leaning end is led by songs such as **“AMAZING GRACE” — JUDY COLLINS**
+- the strongest US-leaning end is led by songs such as **“TENDER LOVER” — BABYFACE**
+
+A few recurring patterns stand out:
+
+- the **least-American** side is crowded with UK/European pop, dance, and soft-rock acts
+- the **most-American** side leans heavily toward US pop, R&B, adult contemporary, and country-adjacent hits
+- the score behaves like a geography filter as much as a popularity filter
 
 ## Tech stack
-- Python (pandas, numpy, matplotlib)
+
+- Python
+- pandas
+- numpy
+- matplotlib
+- seaborn
+- openpyxl
 - Jupyter Notebook
 
-## Notes & Next steps
-- This repo uses US vs UK only. To replicate the actual method used, one must collect weekly charts from additional countries and compute the World score as the mean across countries.
-- Improve entity standardisation (artists with collaborators, remixes) using fuzzy matching or MusicBrainz IDs.
+## Repository contents
+
+- `analysis.ipynb`
+- `charts.csv`
+- `top_100_songs_1952_to_2024.xlsx`
+
+## How to run locally
+
+1. Install dependencies:
+   ```bash
+   pip install pandas numpy matplotlib seaborn openpyxl jupyter
+   ```
+
+2. Put the data files in the project root:
+   - `charts.csv`
+   - `top_100_songs_1952_to_2024.xlsx`
+
+3. Open the notebook:
+   ```bash
+   jupyter notebook analysis.ipynb
+   ```
+
+## Data sources
+
+- Billboard Hot 100: https://www.billboard.com/charts/hot-100/
+- Official UK Singles Chart: https://www.officialcharts.com/charts/singles-chart/
+
+The datasets used in this repo are local exports of those chart archives.
